@@ -93,6 +93,6 @@
     "typedoc": "^0.25.8"
   },
   "dependencies": {
-    "@devlander/utils": "^0.0.63"
+    "@devlander/utils": "^0.0.66"
   }
 }

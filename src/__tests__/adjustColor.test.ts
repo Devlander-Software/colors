@@ -29,12 +29,12 @@ describe('adjustColor', () => {
 
   it('should apply alpha to RGB color', () => {
     const result = adjustColor('rgb(0, 0, 0)', 0.5 as AlphaValue, 'light');
-    expect(result).toMatch(/^rgba\(\d{1,3}, \d{1,3}, \d{1,3}, \d(\.\d+)?\)$/i); // Regex to match RGBA color
+    expect(result).toMatch(/^rgba\(\d{1,3}, \d{1,3}, \d{1,3}, 0(\.\d+)?\)$/i); // Regex to match RGBA color
   });
 
   it('should apply alpha to RGBA color', () => {
     const result = adjustColor('rgba(0, 0, 0, 1)', 0.5 as AlphaValue, 'light');
-    expect(result).toMatch(/^rgba\(\d{1,3}, \d{1,3}, \d{1,3}, \d(\.\d+)?\)$/i); // Regex to match RGBA color
+    expect(result).toMatch(/^rgba\(\d{1,3}, \d{1,3}, \d{1,3}, 0(\.\d+)?\)$/i); // Regex to match RGBA color
   });
 
   it('should handle exceptions and return default color', () => {

@@ -1107,10 +1107,10 @@
     ts-node "^10.9.1"
     typescript "^5.2.2"
 
-"@devlander/utils@^0.0.63":
-  version "0.0.63"
-  resolved "https://registry.yarnpkg.com/@devlander/utils/-/utils-0.0.63.tgz#56d7be3b3438c238a71467672cf7200deef6c9d1"
-  integrity sha512-gI8z2X7+jL0ArKklXOANCkA3Ben2K5r3IbkLJZe3jjSvx6ndoTyeUj9y8sm2Gm4b2+FOlc+uMoYqJUtokTO6Ug==
+"@devlander/utils@^0.0.66":
+  version "0.0.66"
+  resolved "https://registry.yarnpkg.com/@devlander/utils/-/utils-0.0.66.tgz#df0b299a5cca036c065479004ab2025642d3a51d"
+  integrity sha512-ZnsoFsEWKJNPzVak3ZiXyVQiMnqldBG3+WU2amyTNRU5M1sGqnYIwZvOfW3L019klOTLPB0CMJT0FHiyr4mm6g==
 
 "@eslint-community/eslint-utils@^4.2.0", "@eslint-community/eslint-utils@^4.4.0":
   version "4.4.0"

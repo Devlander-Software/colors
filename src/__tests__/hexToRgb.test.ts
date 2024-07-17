@@ -42,6 +42,6 @@ describe("hexToRgb", () => {
     const hexWithAlpha = "#B20A28FF";
     const rgbWithAlpha = hexToRgb(hexWithAlpha);
     // this should round up
-    expect(rgbWithAlpha).toBe("rgba(178, 10, 40, 0.6980392156862745)");
+    expect(rgbWithAlpha).toBe("rgba(178, 10, 40, 0.7)");
   });
 });

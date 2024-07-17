@@ -41,7 +41,6 @@ export const adjustColor: AdjustColorFunc = (
   cssColorNames = defaultCssColorNames
 ): string => {
   try {
-    // Returning this since you can't get a hex code for transparent or reverse it
     if (cssColorNames.includes(colorValue)) return colorValue;
 
     if (alphaValue < 0 || alphaValue > 1) {

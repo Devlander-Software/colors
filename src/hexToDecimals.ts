@@ -17,7 +17,7 @@ export const hexToDecimal = (hex: string): number => {
 };
 
 export interface RgbWithAHexObject extends Partial<HexObject >{
-  r: string,
+  r: string
   g: string,
   b: string,
   a?: string

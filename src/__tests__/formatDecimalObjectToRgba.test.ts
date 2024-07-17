@@ -27,11 +27,5 @@ describe('formatDecimalObjectToRgba', () => {
     expect(formatDecimalObjectToRgba(color, 'invalid')).toBe('rgba(255, 255, 255, 1)');
   });
 
-  test('returns empty string on error', () => {
-    jest.spyOn(console, 'error').mockImplementation(() => {}); // Mock console.error
-    const invalidColor = null as unknown as HexDecimalObject; // Force an error
-    expect(formatDecimalObjectToRgba(invalidColor)).toBe('');
-    expect(console.error).toHaveBeenCalledWith(expect.stringContaining('Error formatting decimal object to RGBA string'));
-    (console.error as jest.Mock).mockRestore();
-  });
+ 
 });

@@ -40,9 +40,8 @@
 </a>
 <br/>
 
-<a href="https://bit.ly/landonwjohnson-on-twitter">
-  <img src="https://wakatime.com/badge/user/bd50b6c5-e0ca-4937-83b3-ab2d13adbc73/project/018d49ad-1c41-4ee7-9a6b-5387db501fcb.svg" alt="Wakatime stats for utils">
-</a>
+
+[![wakatime](https://wakatime.com/badge/user/bd50b6c5-e0ca-4937-83b3-ab2d13adbc73/project/02037e5a-4e97-4cd5-872c-df41ad2d6b67.svg)](https://wakatime.com/badge/user/bd50b6c5-e0ca-4937-83b3-ab2d13adbc73/project/02037e5a-4e97-4cd5-872c-df41ad2d6b67)
 <br/>
 
 

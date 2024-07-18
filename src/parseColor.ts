@@ -1,15 +1,10 @@
-/**
- * Imports for color conversion and validation utilities.
- */
 import { canBeConvertedIntoColor } from "./canBeConvertedToColor";
-import { hexesToDecimals } from "./hexToDecimals";
-import { hexToRgb } from "./hexToRgb";
-import { hexToRgba } from "./hexToRgba";
+import { hexesToDecimals, RgbWithAHexObject } from "./hexToDecimals";
 import { isValidHex } from "./isValidHex";
 import { isValidRgb } from "./isValidRgb";
 import { isValidRgba } from "./isValidRgba";
 import { parseRgbString } from "./parseRgbString";
-import { toRgbString } from "./toRgbString";
+import { parseHex } from "./parseHex";
 import { HexDecimalObject } from "./types/hex-decimal-object.interface";
 
 /**
@@ -24,25 +19,16 @@ export const parseColor = (colorValue: string): HexDecimalObject => {
   }
 
   try {
-    let rgbString: string | null = null;
-    let rgbaString: string | null = null;
     let result: HexDecimalObject | null = null;
 
     if (isValidHex(colorValue)) {
-      rgbString = hexToRgb(colorValue);
-      rgbaString = hexToRgba(colorValue);
+      const hexObject = parseHex(colorValue);
+      result = hexesToDecimals(hexObject as RgbWithAHexObject);
     } else if (isValidRgb(colorValue)) {
-      rgbString = colorValue;
+     result = hexesToDecimals(colorValue);
     } else if (isValidRgba(colorValue)) {
-      rgbaString = colorValue;
-    }
-
-    if (rgbString) {
-      result = parseRgbString(rgbString);
-    }
-
-    if (!result && rgbaString) {
-      result = parseRgbString(rgbaString);
+      const hexObject = parseRgbString(colorValue);
+      result = hexesToDecimals(hexObject as any);
     }
 
     if (result) {

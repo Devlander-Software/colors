@@ -11,50 +11,43 @@ import { toRgbString } from './toRgbString';
  * @returns An RGB or RGBA color value. ('rgb(11, 22, 33)', 'rgba(11, 22, 33, 0.5)')
  */
 export function hexToRgba(hex: string, alpha: string | number = 1): string {
-  try {
-    if (!isValidHex(hex)) {
-      throw new Error('Invalid hex color');
-    }
-
-    const hashlessHex = hex.replace(/^#/, '');
-    const { r, g, b } = parseHex(hashlessHex);
-
-    // Check if r, g, b are valid numbers
-    if (!isNumeric(r) || !isNumeric(g) || !isNumeric(b)) {
-      throw new TypeError('Invalid color components');
-    }
-
-    let alphaValue: number;
-
-    // Check alpha value
-    if (typeof alpha === 'number') {
-      if (alpha < 0 || alpha > 1) {
-        throw new Error('Invalid alpha value');
-      }
-      alphaValue = alpha;
-    } else if (isNumeric(alpha)) {
-      alphaValue = parseFloat(alpha);
-      if (alphaValue < 0 || alphaValue > 1) {
-        throw new Error('Invalid alpha value');
-      }
-    } else {
-      alphaValue = 1;
-    }
-
-    return toRgbString({
-      r: hexToDecimal(r),
-      g: hexToDecimal(g),
-      b: hexToDecimal(b),
-      a: alphaValue
-    });
-
-  } catch (error: any) {
-    console.log(`Error converting hex to RGBA: ${error.toString()}`);
-    return toRgbString({
-      r: hexToDecimal('FF'),
-      g: hexToDecimal('00'),
-      b: hexToDecimal('00'),
-      a: 1
-    });
+  if (!isValidHex(hex)) {
+    throw new Error('Invalid hex color');
   }
+
+  const hashlessHex = hex.replace(/^#/, '');
+  const { r, g, b } = parseHex(hashlessHex);
+
+  // Validate the parsed hex values
+  if (!r || !g || !b || r.length !== 2 || g.length !== 2 || b.length !== 2) {
+    throw new TypeError('Invalid color components');
+  }
+
+  const red = hexToDecimal(r);
+  const green = hexToDecimal(g);
+  const blue = hexToDecimal(b);
+
+  let alphaValue: number;
+
+  // Check alpha value
+  if (typeof alpha === 'number') {
+    if (alpha < 0 || alpha > 1) {
+      throw new Error('Invalid alpha value');
+    }
+    alphaValue = alpha;
+  } else if (isNumeric(alpha)) {
+    alphaValue = parseFloat(alpha);
+    if (alphaValue < 0 || alphaValue > 1) {
+      throw new Error('Invalid alpha value');
+    }
+  } else {
+    alphaValue = 1;
+  }
+
+  return toRgbString({
+    r: red,
+    g: green,
+    b: blue,
+    a: alphaValue
+  });
 }

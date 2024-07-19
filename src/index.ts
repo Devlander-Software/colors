@@ -1,104 +1,104 @@
 /**
  * TSDoc for adjustColor
  */
-export * from "./adjustColor";
+export * from './adjustColor'
 /**
  * TSDoc for applyAlphaToColor
  */
-export * from "./applyAlphaToColor";
+export * from './applyAlphaToColor'
 /**
  * TSDoc for blendColors
  */
-export * from "./blendColors";
+export * from './blendColors'
 /**
  * TSDoc for canBeConvertedToColor
  */
-export * from "./canBeConvertedToColor";
+export * from './canBeConvertedToColor'
 /**
  * TSDoc for color
  */
-export * from "./color";
+export * from './color'
 /**
  * TSDoc for cssColors
  */
-export * from "./cssColors";
+export * from './cssColors'
 /**
  * TSDoc for darkenColor
  */
-export * from "./darkenColor";
+export * from './darkenColor'
 /**
  * TSDoc for formatDecimalObjectToRgba
  */
-export * from "./formatDecimalObjectToRgba";
+export * from './formatDecimalObjectToRgba'
 /**
  * TSDoc for hexToDecimals
  */
-export * from "./hexToDecimals";
+export * from './hexToDecimals'
 /**
  * TSDoc for hexToRgb
  */
-export * from "./hexToRgb";
+export * from './hexToRgb'
 /**
  * TSDoc for hexToRgba
  */
-export * from "./hexToRgba";
+export * from './hexToRgba'
 /**
  * TSDoc for hslToRgb
  */
-export * from "./hslToRgb";
+export * from './hslToRgb'
 /**
  * TSDoc for isHexColor
  */
-export * from "./isHexColor";
+export * from './isHexColor'
 /**
  * TSDoc for isRgbaOutOfRange
  */
-export * from "./isRgbaOutOfRange";
+export * from './isRgbaOutOfRange'
 /**
  * TSDoc for isValidAlphaHexCode
  */
-export * from "./isValidAlphaHexCode";
+export * from './isValidAlphaHexCode'
 /**
  * TSDoc for isValidHex
  */
-export * from "./isValidHex";
+export * from './isValidHex'
 /**
  * TSDoc for isValidRgb
  */
-export * from "./isValidRgb";
+export * from './isValidRgb'
 /**
  * TSDoc for isValidRgba
  */
-export * from "./isValidRgba";
+export * from './isValidRgba'
 /**
  * TSDoc for lightenColor
  */
-export * from "./lightenColor";
+export * from './lightenColor'
 /**
  * TSDoc for parseColor
  */
-export * from "./parseColor";
+export * from './parseColor'
 /**
  * TSDoc for parseHex
  */
-export * from "./parseHex";
+export * from './parseHex'
 /**
  * TSDoc for parseRgbString
  */
-export * from "./parseRgbString";
+export * from './parseRgbString'
 /**
  * TSDoc for rgbaToHexAlpha
  */
-export * from "./rgbaToHexAlpha";
+export * from './rgbaToHexAlpha'
 /**
  * TSDoc for toHexColor
  */
-export * from "./toHexColor";
+export * from './toHexColor'
 /**
  * TSDoc for toRgbString
  */
-export * from "./toRgbString";
+export * from './toRgbString'
 /**
  * TSDoc for color-names
  */
-export * from "./types/color-names";
+export * from './types/color-names'

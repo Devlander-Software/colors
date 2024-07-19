@@ -30,5 +30,5 @@ export const lightenColor = (
     r: Math.min(255, Math.round(color.r + factor * (255 - color.r))),
     g: Math.min(255, Math.round(color.g + factor * (255 - color.g))),
     b: Math.min(255, Math.round(color.b + factor * (255 - color.b))),
-  };
-};
+  }
+}

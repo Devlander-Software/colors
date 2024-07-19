@@ -1,1 +1,1 @@
-export type ColorInputType = "hex" | "rgb" | "rgba" | "invalid";
+export type ColorInputType = 'hex' | 'rgb' | 'rgba' | 'invalid'

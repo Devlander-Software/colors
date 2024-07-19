@@ -11,4 +11,4 @@ export type AlphaValue =
   | 0.8
   | 0.9
   | 1.0
-  | 1;
+  | 1

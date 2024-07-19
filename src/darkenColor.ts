@@ -30,5 +30,5 @@ export const darkenColor = (
     r: Math.max(0, Math.round(color.r - factor * color.r)),
     g: Math.max(0, Math.round(color.g - factor * color.g)),
     b: Math.max(0, Math.round(color.b - factor * color.b)),
-  };
-};
+  }
+}

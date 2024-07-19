@@ -13,12 +13,15 @@
  * console.log(RGBAToHexAlpha('rgba(255, 0, 0, 0.5)', true)); // Output: '#ff0000'
  * ```
  */
-export const RGBAToHexAlpha = (rgba: string, forceRemoveAlpha = false): string => {
+export const RGBAToHexAlpha = (
+  rgba: string,
+  forceRemoveAlpha = false,
+): string => {
   // Extracts numbers from the rgba/rgb string
   const numbers = rgba.match(/\d+\.?\d*/g)?.map(Number);
 
   if (!numbers) {
-    throw new Error('Invalid RGBA/RGB input');
+    throw new Error("Invalid RGBA/RGB input");
   }
 
   // Convert the RGBA values to hex
@@ -27,7 +30,7 @@ export const RGBAToHexAlpha = (rgba: string, forceRemoveAlpha = false): string =
     if (idx === 3) num = Math.round(num * 255);
 
     const hex = num.toString(16);
-    return hex.length === 1 ? '0' + hex : hex;
+    return hex.length === 1 ? "0" + hex : hex;
   });
 
   // If forceRemoveAlpha is true, remove the alpha value
@@ -35,5 +38,5 @@ export const RGBAToHexAlpha = (rgba: string, forceRemoveAlpha = false): string =
     hexValues.pop();
   }
 
-  return '#' + hexValues.join('');
+  return "#" + hexValues.join("");
 };

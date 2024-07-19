@@ -23,13 +23,12 @@
  * ```
  */
 export const lightenColor = (
-    color: { r: number; g: number; b: number },
-    factor: number
-  ): { r: number; g: number; b: number } => {
-    return {
-      r: Math.min(255, Math.round(color.r + factor * (255 - color.r))),
-      g: Math.min(255, Math.round(color.g + factor * (255 - color.g))),
-      b: Math.min(255, Math.round(color.b + factor * (255 - color.b)))
-    };
+  color: { r: number; g: number; b: number },
+  factor: number,
+): { r: number; g: number; b: number } => {
+  return {
+    r: Math.min(255, Math.round(color.r + factor * (255 - color.r))),
+    g: Math.min(255, Math.round(color.g + factor * (255 - color.g))),
+    b: Math.min(255, Math.round(color.b + factor * (255 - color.b))),
   };
-  
+};

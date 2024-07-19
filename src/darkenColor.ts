@@ -23,13 +23,12 @@
  * ```
  */
 export const darkenColor = (
-    color: { r: number; g: number; b: number },
-    factor: number
-  ): { r: number; g: number; b: number } => {
-    return {
-      r: Math.max(0, Math.round(color.r - factor * color.r)),
-      g: Math.max(0, Math.round(color.g - factor * color.g)),
-      b: Math.max(0, Math.round(color.b - factor * color.b))
-    };
+  color: { r: number; g: number; b: number },
+  factor: number,
+): { r: number; g: number; b: number } => {
+  return {
+    r: Math.max(0, Math.round(color.r - factor * color.r)),
+    g: Math.max(0, Math.round(color.g - factor * color.g)),
+    b: Math.max(0, Math.round(color.b - factor * color.b)),
   };
-  
+};

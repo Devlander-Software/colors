@@ -3,3 +3,6 @@ export interface Rgb {
     g: number;
     b: number;
 }
+export interface HexDecimalObject extends Rgb {
+    a?: number;
+}

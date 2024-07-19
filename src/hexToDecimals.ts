@@ -1,6 +1,6 @@
-import { isObject, isString } from '@devlander/utils';
-import { HexObject, parseHex } from './parseHex';
-import { HexDecimalObject } from './types/hex-decimal-object.interface';
+import { isObject, isString } from "@devlander/utils";
+import { HexObject, parseHex } from "./parseHex";
+import { HexDecimalObject } from "./types/hex-decimal-object.interface";
 
 /**
  * Converts a hexadecimal string to a decimal number.
@@ -40,12 +40,14 @@ type ParamsForHexesToDecimals = string | RgbWithAHexObject;
  *
  * const hexString = '#ff000080';
  * console.log(hexesToDecimals(hexString)); // { r: 255, g: 0, b: 0, a: 0.5 }
- * 
+ *
  * const shortHexString = '#f008';
  * console.log(hexesToDecimals(shortHexString)); // { r: 255, g: 0, b: 0, a: 0.53 }
  * ```
  */
-export const hexesToDecimals = (params: ParamsForHexesToDecimals): HexDecimalObject => {
+export const hexesToDecimals = (
+  params: ParamsForHexesToDecimals,
+): HexDecimalObject => {
   let hexObject: RgbWithAHexObject;
 
   if (isObject(params) && !isString(params)) {
@@ -53,7 +55,7 @@ export const hexesToDecimals = (params: ParamsForHexesToDecimals): HexDecimalObj
       r: params.r,
       g: params.g,
       b: params.b,
-      a: "a" in params ? params.a : 'ff'
+      a: "a" in params ? params.a : "ff",
     };
   } else {
     hexObject = parseHex(params as string);
@@ -66,7 +68,7 @@ export const hexesToDecimals = (params: ParamsForHexesToDecimals): HexDecimalObj
     b: hexToDecimal(b),
   };
 
-  if (a !== undefined && a !== 'ff') {
+  if (a !== undefined && a !== "ff") {
     result.a = +(hexToDecimal(a) / 255).toFixed(2);
   } else {
     result.a = 1;
@@ -81,7 +83,7 @@ export const hexesToDecimals = (params: ParamsForHexesToDecimals): HexDecimalObj
  * @returns The validated HexDecimalObject.
  */
 const validateHexDecimalObject = (obj: HexDecimalObject): HexDecimalObject => {
-  const keys: (keyof HexDecimalObject)[] = ['r', 'g', 'b', 'a'];
+  const keys: (keyof HexDecimalObject)[] = ["r", "g", "b", "a"];
   keys.forEach((key) => {
     if (obj[key] !== undefined && isNaN(obj[key] as number)) {
       obj[key] = 1;

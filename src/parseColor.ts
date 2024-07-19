@@ -6,6 +6,9 @@ import { isValidRgba } from "./isValidRgba";
 import { parseRgbString } from "./parseRgbString";
 import { parseHex } from "./parseHex";
 import { HexDecimalObject } from "./types/hex-decimal-object.interface";
+import { isRgbaOutOfRange } from "./isRgbaOutOfRange";
+
+export type ColorFormatType = "hex" | "rgba" | "rgb" | "alphaHex" | undefined;
 
 /**
  * Parses a color value into a HexDecimalObject representing RGB(A) values.
@@ -17,7 +20,6 @@ export const parseColor = (colorValue: string): HexDecimalObject => {
   if (!canBeConvertedIntoColor(colorValue)) {
     throw new Error("Invalid color format");
   }
-
   try {
     let result: HexDecimalObject | null = null;
 
@@ -25,25 +27,39 @@ export const parseColor = (colorValue: string): HexDecimalObject => {
       const hexObject = parseHex(colorValue);
       result = hexesToDecimals(hexObject as RgbWithAHexObject);
     } else if (isValidRgb(colorValue)) {
-     result = hexesToDecimals(colorValue);
+      const rgbObject = parseRgbString(colorValue);
+      result = rgbObject;
     } else if (isValidRgba(colorValue)) {
-      const hexObject = parseRgbString(colorValue);
-      result = hexesToDecimals(hexObject as any);
+      const rgbaObject = parseRgbString(colorValue);
+      result = rgbaObject;
     }
 
     if (result) {
-      return result;
+      if (!isRgbaOutOfRange(result)) {
+        return result;
+      }
+      return {
+        r: 0,
+        g: 0,
+        b: 0,
+        a: 1,
+      };
     } else {
       // Default to black if parsing fails
       return {
         r: 0,
         g: 0,
         b: 0,
-        a: 1
+        a: 1,
       };
     }
   } catch (error) {
     console.error(`Error parsing color value: ${colorValue}`, error);
-    throw error;
+    return {
+      r: 0,
+      g: 0,
+      b: 0,
+      a: 1,
+    };
   }
 };

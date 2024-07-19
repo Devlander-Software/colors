@@ -1,4 +1,4 @@
-import { HexDecimalObject } from './types/hex-decimal-object.interface';
+import { HexDecimalObject } from "./types/hex-decimal-object.interface";
 export declare class Color {
     private color;
     constructor(color: string | HexDecimalObject);

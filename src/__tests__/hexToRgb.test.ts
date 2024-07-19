@@ -1,6 +1,5 @@
 import { hexToRgb } from "../hexToRgb";
 
-
 const uniqueHexColors = [
   "#B20A28",
   "#009655",

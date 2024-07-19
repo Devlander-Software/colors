@@ -1,9 +1,8 @@
 {
   "name": "@devlander/colors",
   "description": "Color utility package used between packages",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "browser": "dist/umd/index.js",
-  "private": true,
   "main": "dist/cjs/index.js",
   "types": "typings/index.d.ts",
   "module": "dist/esm/index.js",
@@ -11,7 +10,6 @@
   "scripts": {
     "prebuild": "yarn cache clean --force",
     "build:index": "node ./external-modules/auto-export.js",
-    "increment-version": "yarn version patch",
     "build:esm": "tsc",
     "test": "jest",
     "test:failed": "jest --onlyFailures",
@@ -23,7 +21,7 @@
     "timeout": "delay 5",
     "docs": "typedoc --out ./docs ./src",
     "push-main": "git add -A && yarn run timeout && git commit -m 'updated build' && yarn run timeout  && git push origin main",
-    "start-publish": "yarn run lint && yarn run build && yarn  run increment-version && npm publish",
+    "start-publish": "yarn run lint && yarn run build && npm publish",
     "prepare": "yarn run build"
   },
   "repository": {

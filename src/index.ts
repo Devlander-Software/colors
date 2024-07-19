@@ -31,10 +31,6 @@ export * from "./darkenColor";
  */
 export * from "./formatDecimalObjectToRgba";
 /**
- * TSDoc for generateColorFrom[TODO]
- */
-export * from "./generateColorFrom[TODO]";
-/**
  * TSDoc for hexToDecimals
  */
 export * from "./hexToDecimals";
@@ -54,6 +50,14 @@ export * from "./hslToRgb";
  * TSDoc for isHexColor
  */
 export * from "./isHexColor";
+/**
+ * TSDoc for isRgbaOutOfRange
+ */
+export * from "./isRgbaOutOfRange";
+/**
+ * TSDoc for isValidAlphaHexCode
+ */
+export * from "./isValidAlphaHexCode";
 /**
  * TSDoc for isValidHex
  */

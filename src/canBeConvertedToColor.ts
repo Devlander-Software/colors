@@ -1,9 +1,13 @@
-import { isHexColor } from './isHexColor';
-import { isValidHex } from './isValidHex';
-import { isValidRgb } from './isValidRgb';
-import { isValidRgba } from './isValidRgba';
+import { isValidHex } from "./isValidHex";
+import { isValidRgb } from "./isValidRgb";
+import { isValidRgba } from "./isValidRgba";
 
-export const canBeConvertedIntoColor = (colorValue: string, cssColorNames = ['transparent']): boolean => {
+export const canBeConvertedIntoColor = (
+  colorValue: string,
+  cssColorNames = ["transparent"],
+): boolean => {
   if (cssColorNames.includes(colorValue)) return true;
-  return isValidHex(colorValue) || isValidRgb(colorValue) || isValidRgba(colorValue);
+  return (
+    isValidHex(colorValue) || isValidRgb(colorValue) || isValidRgba(colorValue)
+  );
 };

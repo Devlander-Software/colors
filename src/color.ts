@@ -1,19 +1,19 @@
-import { darkenColor } from './darkenColor';
-import { lightenColor } from './lightenColor';
-import { blendColors } from './blendColors';
-import { applyAlphaToColor } from './applyAlphaToColor';
-import { toHexColor } from './toHexColor';
-import { toRgbString } from './toRgbString';
-import { HexDecimalObject } from './types/hex-decimal-object.interface';
-import { hexToDecimal } from './hexToDecimals';
+import { darkenColor } from "./darkenColor";
+import { lightenColor } from "./lightenColor";
+import { blendColors } from "./blendColors";
+import { applyAlphaToColor } from "./applyAlphaToColor";
+import { toHexColor } from "./toHexColor";
+import { toRgbString } from "./toRgbString";
+import { HexDecimalObject } from "./types/hex-decimal-object.interface";
+import { hexToDecimal } from "./hexToDecimals";
 
 export class Color {
   private color: HexDecimalObject;
 
   constructor(color: string | HexDecimalObject) {
-    if (typeof color === 'string') {
+    if (typeof color === "string") {
       // Parse the string into RGB (assume it's in the format '#RRGGBB' or '#RRGGBBAA')
-      const hex = color.replace('#', '');
+      const hex = color.replace("#", "");
       this.color = {
         r: hexToDecimal(hex.substring(0, 2)),
         g: hexToDecimal(hex.substring(2, 4)),

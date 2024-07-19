@@ -1,35 +1,41 @@
 import { parseColor } from "../parseColor";
+import { ColorTestCase } from "./colorTestCases.test";
+import { getTestCasesByType } from "./colorTestCasesFunctions.test";
 
-describe('parseColor', () => {
-  test('should return parsed RGB object for valid hex color', () => {
-    const result = parseColor('#ff0000');
-    expect(result).toEqual({ r: 255, g: 0, b: 0 });
+const runTests = (func: (color: string) => any, testCases: ColorTestCase[]) => {
+  testCases.forEach((testCase) => {
+    if (testCase.expectedError) {
+      test(testCase.name, () => {
+        expect(() => func(testCase.input)).toThrow(testCase.expectedError);
+      });
+    } else {
+      test(testCase.name, () => {
+        const result = func(testCase.input);
+        expect(result).toEqual(testCase.expected);
+      });
+    }
+  });
+};
+
+describe("parseColor", () => {
+  const hexTestCases = getTestCasesByType(["hex"], ["HexDecimalObject"]);
+  const rgbTestCases = getTestCasesByType(["rgb"], ["HexDecimalObject"]);
+  const rgbaTestCases = getTestCasesByType(["rgba"], ["HexDecimalObject"]);
+  const invalidTestCases = getTestCasesByType(["invalid"], ["Error"]);
+
+  describe("Hex Tests", () => {
+    runTests(parseColor, hexTestCases);
   });
 
-  test('should return parsed RGBA object for valid hex color with alpha', () => {
-    const result = parseColor('#ff000080');
-    expect(result).toEqual({ r: 255, g: 0, b: 0, a: 0.5 });
+  describe("RGB Tests", () => {
+    runTests(parseColor, rgbTestCases);
   });
 
-  test('should return parsed RGB object for valid rgb color', () => {
-    const result = parseColor('rgb(255, 0, 0)');
-    expect(result).toEqual({ r: 255, g: 0, b: 0 });
+  describe("RGBA Tests", () => {
+    runTests(parseColor, rgbaTestCases);
   });
 
-  test('should return parsed RGBA object for valid rgba color', () => {
-    const result = parseColor('rgba(255, 0, 0, 0.5)');
-    expect(result).toEqual({ r: 255, g: 0, b: 0, a: 0.5 });
-  });
-
-  test('should throw error for invalid color format', () => {
-    expect(() => parseColor('invalid-color')).toThrow('Invalid color format');
-  });
-
-  test('should throw error and log when parsing fails', () => {
-    const consoleErrorMock = jest.spyOn(console, 'error').mockImplementation(() => {});
-    expect(() => parseColor('#gggggg')).toThrow();
-    expect(consoleErrorMock).toHaveBeenCalled();
-
-    consoleErrorMock.mockRestore();
+  describe("Invalid Tests", () => {
+    runTests(parseColor, invalidTestCases);
   });
 });

@@ -1,4 +1,4 @@
-import { HexDecimalObject } from './types/hex-decimal-object.interface';
+import { HexDecimalObject } from "./types/hex-decimal-object.interface";
 /**
  * Formats a HexDecimalObject to an RGBA string.
  *

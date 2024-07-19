@@ -1,4 +1,4 @@
-import { isRgbaOutOfRange } from './isRgbaOutOfRange'
+import { isRgbaOutOfRange } from "./isRgbaOutOfRange";
 
 /**
  * Checks if the provided string is a valid RGB color format.
@@ -8,25 +8,25 @@ import { isRgbaOutOfRange } from './isRgbaOutOfRange'
 
 export const isValidRgb = (rgb: string): boolean => {
   try {
-    const rgbRegex = /^rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)$/
-    const match = rgb.match(rgbRegex)
+    const rgbRegex = /^rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)$/;
+    const match = rgb.match(rgbRegex);
 
     if (!match) {
-      return false
+      return false;
     }
 
-    const [, r, g, b] = match.map(Number)
+    const [, r, g, b] = match.map(Number);
     const rgbObj = {
       r: r,
       g: g,
       b: b,
-    }
+    };
 
-    const valid = !isRgbaOutOfRange(rgbObj)
+    const valid = !isRgbaOutOfRange(rgbObj);
 
-    return valid
+    return valid;
   } catch (error) {
-    console.error(`Error validating RGB string: ${rgb}`, error)
-    return false
+    console.error(`Error validating RGB string: ${rgb}`, error);
+    return false;
   }
-}
+};

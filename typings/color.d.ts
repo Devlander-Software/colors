@@ -1,13 +1,16 @@
 import { HexDecimalObject } from "./types/hex-decimal-object.interface";
+import { AlphaScale } from "./types/alpha-scale.type";
+import { ThemeType } from "./types/theme.type";
 export declare class Color {
     private color;
-    constructor(color: string | HexDecimalObject);
-    darken(factor: number): Color;
-    lighten(factor: number): Color;
+    private mode;
+    constructor(color: string | HexDecimalObject, mode?: ThemeType);
+    darken(factor: AlphaScale): Color;
+    lighten(factor: AlphaScale): Color;
     rgb(): string;
     hex(): string;
     invert(): string;
-    alpha(factor: number): HexDecimalObject;
-    blend(factor: number, secondaryColor: HexDecimalObject): Color;
+    alpha(factor: AlphaScale): HexDecimalObject;
+    blend(factor: AlphaScale, secondaryColor: HexDecimalObject): Color;
     getColor(): HexDecimalObject;
 }

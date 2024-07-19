@@ -33,7 +33,7 @@ describe("Color class", () => {
   test("should blend the color with another color", () => {
     const color = new Color("#ff6464");
     const secondaryColor: HexDecimalObject = { r: 0, g: 0, b: 255 };
-    color.blend(0.5, secondaryColor);
+    color.blend(50, secondaryColor);
     expect(color.getColor()).toEqual({ r: 128, g: 50, b: 178 });
   });
 

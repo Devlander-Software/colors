@@ -1,6 +1,6 @@
-import { isObject, isString } from '@devlander/utils'
-import { HexObject, parseHex } from './parseHex'
-import { HexDecimalObject } from './types/hex-decimal-object.interface'
+import { isObject, isString } from "@devlander/utils";
+import { HexObject, parseHex } from "./parseHex";
+import { HexDecimalObject } from "./types/hex-decimal-object.interface";
 
 /**
  * Converts a hexadecimal string to a decimal number.
@@ -14,17 +14,17 @@ import { HexDecimalObject } from './types/hex-decimal-object.interface'
  * ```
  */
 export const hexToDecimal = (hex: string): number => {
-  return parseInt(hex, 16)
-}
+  return parseInt(hex, 16);
+};
 
 export interface RgbWithAHexObject extends Partial<HexObject> {
-  r: string
-  g: string
-  b: string
-  a?: string
+  r: string;
+  g: string;
+  b: string;
+  a?: string;
 }
 
-type ParamsForHexesToDecimals = string | RgbWithAHexObject
+type ParamsForHexesToDecimals = string | RgbWithAHexObject;
 
 /**
  * Converts a HexObject or hex string to a HexDecimalObject by converting each hex value to its decimal equivalent.
@@ -48,34 +48,34 @@ type ParamsForHexesToDecimals = string | RgbWithAHexObject
 export const hexesToDecimals = (
   params: ParamsForHexesToDecimals,
 ): HexDecimalObject => {
-  let hexObject: RgbWithAHexObject
+  let hexObject: RgbWithAHexObject;
 
   if (isObject(params) && !isString(params)) {
     hexObject = {
       r: params.r,
       g: params.g,
       b: params.b,
-      a: 'a' in params ? params.a : 'ff',
-    }
+      a: "a" in params ? params.a : "ff",
+    };
   } else {
-    hexObject = parseHex(params as string)
+    hexObject = parseHex(params as string);
   }
 
-  const { r, g, b, a } = hexObject
+  const { r, g, b, a } = hexObject;
   const result: HexDecimalObject = {
     r: hexToDecimal(r),
     g: hexToDecimal(g),
     b: hexToDecimal(b),
-  }
+  };
 
-  if (a !== undefined && a !== 'ff') {
-    result.a = +(hexToDecimal(a) / 255).toFixed(2)
+  if (a !== undefined && a !== "ff") {
+    result.a = +(hexToDecimal(a) / 255).toFixed(2);
   } else {
-    result.a = 1
+    result.a = 1;
   }
 
-  return validateHexDecimalObject(result)
-}
+  return validateHexDecimalObject(result);
+};
 
 /**
  * Validates a HexDecimalObject by checking for NaN values and changing them to 1.
@@ -83,11 +83,11 @@ export const hexesToDecimals = (
  * @returns The validated HexDecimalObject.
  */
 const validateHexDecimalObject = (obj: HexDecimalObject): HexDecimalObject => {
-  const keys: (keyof HexDecimalObject)[] = ['r', 'g', 'b', 'a']
+  const keys: (keyof HexDecimalObject)[] = ["r", "g", "b", "a"];
   keys.forEach((key) => {
     if (obj[key] !== undefined && isNaN(obj[key] as number)) {
-      obj[key] = 1
+      obj[key] = 1;
     }
-  })
-  return obj
-}
+  });
+  return obj;
+};

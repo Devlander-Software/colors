@@ -98,4 +98,4 @@ export type NumberRange1To100 =
   | 97
   | 98
   | 99
-  | 100
+  | 100;

@@ -26,10 +26,10 @@
  * color codes are processed, preventing errors and unexpected behavior.
  */
 export const isValidHex = (hex: string): boolean => {
-  console.log(`Testing hex: ${hex}`) // Debugging log
-  if (typeof hex !== 'string') return false
-  const hexPattern = /^#?([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$/
-  const result = hexPattern.test(hex)
-  console.log(`Result for ${hex}: ${result}`) // Debugging log
-  return result
-}
+  console.log(`Testing hex: ${hex}`); // Debugging log
+  if (typeof hex !== "string") return false;
+  const hexPattern = /^#?([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$/;
+  const result = hexPattern.test(hex);
+  console.log(`Result for ${hex}: ${result}`); // Debugging log
+  return result;
+};

@@ -1,6 +1,6 @@
 # Colors
 
-<img src="https://github.com/Devlander-Software/colors/raw/main/media/images/colors-devlander-github-header-photo.png" alt="Devlander Colors Npm Package" />
+<img src="https://github.com/Devlander-Software/colors/raw/production/media/images/colors-devlander-github-header-photo.png" alt="Devlander Colors Npm Package" />
 
 ## Badges
 

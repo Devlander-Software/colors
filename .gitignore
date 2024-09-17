@@ -8,6 +8,7 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+./.yarn/cache
 # IDEs and editors
 /.idea/
 .vscode/
@@ -30,6 +31,6 @@ dist
 .env
 
 
-.yarn/build-state.yml
-.yarn/install-state.gz
+./yarn/build-state.yml
+./yarn/install-state.gz
 ./.yarn/install-state.gz

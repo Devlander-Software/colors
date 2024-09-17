@@ -25,4 +25,4 @@
  * such as in functions like `hexToBinary` and `hexToRgba`. It ensures that only valid hexadecimal
  * color codes are processed, preventing errors and unexpected behavior.
  */
-export declare const isValidHex: (hex: string) => boolean;
+export declare const isValidHex: (hex: string, debug?: boolean) => boolean;

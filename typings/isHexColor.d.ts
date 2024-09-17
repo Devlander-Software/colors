@@ -18,4 +18,4 @@
  * console.log(isHexColor(123 as any)); // false
  * ```
  */
-export declare const isHexColor: (hex: string) => boolean;
+export declare const isHexColor: (hex: string, debug?: boolean) => boolean;

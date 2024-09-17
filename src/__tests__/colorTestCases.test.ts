@@ -3,6 +3,38 @@ import { HexDecimalObject } from "../types/rgb.type";
 export type ColorInputType = "hex" | "rgb" | "rgba" | "invalid";
 export type ColorOutputType = "HexDecimalObject" | "Error" | "boolean";
 
+export const colorTestResults = {
+  passed: {
+    hex: [
+      "#F7F7F7", "#D32F2F", "#FFFFFF", "#FF5722", "#007BFF", "#6C757D",
+      "#E57373", "#81C784", "#64B5F6", "#FFD54F", "#BA68C8", "#66AFFF",
+      "#FAFAFA", "#E0E0E0", "#757575", "#FFC107", "#FFECB3", "#F2F2F2",
+      "#F5F5F5", "#D5D5D5", "#43A047", "#A8A8A8", "#F5F5F5", "#D9D9D9",
+      "#34FFFF", "#EBFFFF", "#D6FFFF", "#C2FFFF", "#AEFFFF", "#9AFFFF",
+      "#85FFFF", "#71FFFF", "#48FFFF", "#343333", "#EBEBEB", "#D6D6D6",
+      "#C2C2C2", "#AEADAD", "#9A9999", "#858585", "#717070", "#484747",
+      "#FFFFFF", "#262626", "#0055AA", "#333333", "#E57373", "#FFA000"
+    ],
+    rgb: []
+  },
+  failed: {
+    rgb: [
+      "rgb(247, 247, 247)", "rgb(211, 47, 47)", "rgb(255, 255, 255)", 
+      "rgb(255, 87, 34)", "rgb(0, 123, 255)", "rgb(108, 117, 125)", 
+      "rgb(229, 115, 115)", "rgb(129, 199, 132)", "rgb(100, 181, 246)", 
+      "rgb(255, 213, 79)", "rgb(186, 104, 200)", "rgb(102, 175, 255)",
+      "rgb(250, 250, 250)", "rgb(33, 33, 33)", "rgb(224, 224, 224)",
+      "rgb(117, 117, 117)", "rgb(189, 189, 189)", "rgb(51, 51, 51)",
+      "rgb(213, 213, 213)", "rgb(245, 245, 245)", "rgb(72, 71, 71)", 
+      "rgb(113, 112, 112)"
+    ],
+    rgba: [
+      "rgba(0, 0, 0, 0.15)", "rgba(255, 193, 7, 0.5)", "rgba(255, 193, 7, 0.8)",
+      "rgba(255, 165, 0, 0.22)", "rgba(255, 165, 0, 0.62)", "rgba(229, 115, 115, 0.1)", 
+      "rgba(229, 115, 115, 0.4)", "rgba(0, 0, 0, 0.15)"
+    ]
+  }
+};
 export interface ColorTestCase {
   name: string;
   input: string;
@@ -36,6 +68,7 @@ const uniqueHexColors = [
   "#1E1E1E",
   "#E1E1E1",
   "#0C0C0C",
+  ...colorTestResults.passed.hex,
 ];
 
 // Valid RGB strings test cases
@@ -45,6 +78,8 @@ const validRgbStrings = [
   "rgb(100, 100, 100)",
   "rgb(0,0,0)",
   "rgb(255, 255, 255)",
+  ...colorTestResults.failed.rgb,
+
 ];
 
 // Valid RGBA strings test cases
@@ -54,7 +89,16 @@ const validRgbaStrings = [
   "rgba(100, 100, 100, 0.5)",
   "rgba(0,0,0,0.5)",
   "rgba(255, 255, 255, 0.5)",
+  ...colorTestResults.failed.rgba,
+  
 ];
+
+
+
+
+
+
+
 
 // Generate RGB test cases
 const generateRgbTestCases = (): ColorTestCase[] => {
@@ -319,3 +363,5 @@ export const colorTestCases: ColorTestCase[] = [
   ...generateRgbTestCases(),
   ...generateRgbaTestCases(),
 ];
+
+

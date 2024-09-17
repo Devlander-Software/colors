@@ -20,18 +20,16 @@
  */
 export const isHexColor = (hex: string, debug?: boolean): boolean => {
   if (typeof hex !== "string") {
-    if(debug && debug === true){
+    if (debug && debug === true) {
       console.log(`Invalid type for hex: ${typeof hex}`);
-
     }
     return false;
   }
   const hexPattern =
     /^#?([0-9A-Fa-f]{3}|[0-9A-Fa-f]{4}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$/;
   const isValid = hexPattern.test(hex);
-  if(debug && debug === true){
+  if (debug && debug === true) {
     console.log(`Testing hex: ${hex}, Result: ${isValid}`);
-
   }
   return isValid;
 };

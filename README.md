@@ -1,8 +1,8 @@
 # Colors
 
-<img src="https://github.com/Devlander-Software/colors/raw/production/media/images/colors-devlander-github-header-photo.png" alt="Devlander Colors Npm Package" />
 
 ## Badges
+[![Reddit](https://img.shields.io/badge/Reddit-r%2Fsoftwareengineersutah-orange?logo=reddit)](https://www.reddit.com/r/softwareengineersutah/)
 
 [![Join Devlander on Discord](https://img.shields.io/badge/Discord-Devlander-%235865F2)](https://bit.ly/devlander-discord-invite)  
 [![npm downloads](https://img.shields.io/npm/dm/@devlander/colors.svg)](https://www.npmjs.com/package/@devlander/colors)  

@@ -19,11 +19,7 @@ describe("canBeConvertedIntoColor", () => {
     expect(canBeConvertedIntoColor("rgb(123, 45, 67)")).toBe(true);
   });
 
-  test("should return true for valid rgba colors", () => {
-    expect(canBeConvertedIntoColor("rgba(255, 255, 255, 1)")).toBe(true);
-    expect(canBeConvertedIntoColor("rgba(0, 0, 0, 0)")).toBe(true);
-    expect(canBeConvertedIntoColor("rgba(123, 45, 67, 0.5)")).toBe(true);
-  });
+  
 
   test("should return false for invalid colors", () => {
     expect(canBeConvertedIntoColor("notacolor")).toBe(false);

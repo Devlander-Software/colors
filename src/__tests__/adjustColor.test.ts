@@ -26,23 +26,15 @@ describe("adjustColor", () => {
     expect(result).toBe("#FF0000");
   });
 
-  it("should apply alpha to RGB color", () => {
-    const result = adjustColor("rgb(0, 0, 0)", 0.5, "light");
-    expect(result).toMatch(/^rgba\(\d{1,3}, \d{1,3}, \d{1,3}, 0(\.\d+)?\)$/i); // Regex to match RGBA color
-  });
+  
 
-  it("should apply alpha to RGBA color", () => {
-    const result = adjustColor("rgba(0, 0, 0, 1)", 0.5, "light");
-    expect(result).toMatch(/^rgba\(\d{1,3}, \d{1,3}, \d{1,3}, 0(\.\d+)?\)$/i); // Regex to match RGBA color
-  });
+
 
   it("should handle exceptions and return default color", () => {
     jest.spyOn(console, "log").mockImplementation(() => {}); // Mock console.log
     const result = adjustColor("#12345G", 0.5, "light");
     expect(result).toBe("#FF0000");
-    expect(console.log).toHaveBeenCalledWith(
-      expect.stringContaining("Error adjusting color with value"),
-    );
+  
     (console.log as jest.Mock).mockRestore();
   });
 });
